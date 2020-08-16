@@ -13,6 +13,21 @@ def url_generator(page, category_name)
   end
 end
 
+def loop_categories(categories)
+  categories.each do |category|
+    category_name = create_category_name(category)
+    Display.display_category_name(category_name)
+    find_by_category(category_name)
+  end
+end
+
+def create_category_name(category)
+  text_content = category['title']
+  suffix_index = text_content.index(' Jobs in Ethiopia')
+  category_name = text_content[0, suffix_index]
+  category_name
+end
+
 def scrape(target_url)
   scrapper = Scrapper.new(target_url)
   scrapper
