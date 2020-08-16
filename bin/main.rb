@@ -13,6 +13,15 @@ def url_generator(page, category_name)
   end
 end
 
+def find_by_category(category_name)
+  single_category_jobs = find_single_category_jobs(category_name)
+  if single_category_jobs.length.zero?
+    Display.display_no_job_found
+  else
+    list_single_category_jobs(single_category_jobs)
+  end
+end
+
 def loop_categories(categories)
   categories.each do |category|
     category_name = create_category_name(category)
