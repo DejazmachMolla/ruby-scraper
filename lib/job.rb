@@ -58,4 +58,16 @@ class Job
     end
     logo_url
   end
+
+  def create_abouts(detail_page)
+    about_jobs = []
+    abouts = detail_page.at('//div[4]').css('div/div/div.displayFieldBlock')
+    abouts.each do |about|
+      key = about.css('div.displaFieldHeader').text
+      value = about.css('div.displayField').text.strip
+      about_job = AboutJob.new(key, value)
+      about_jobs << about_job
+    end
+    about_jobs
+  end
 end
