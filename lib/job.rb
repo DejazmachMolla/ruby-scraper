@@ -27,6 +27,15 @@ class Job
     rescue URI::InvalidURIError
       job
     end
+
+    def find_posted_on(job_listing)
+      posted_on_unformatted = job_listing.at('//div[5]').css('div/script').first.text.to_s
+      posted_on_start = posted_on_unformatted.index('"') + 1
+      posted_on_end = posted_on_unformatted.index('".split')
+      posted_on = posted_on_unformatted[posted_on_start, posted_on_end - posted_on_start].strip
+      posted_on = Job.format_date(posted_on)
+      posted_on
+    end
   end
-  
+
 end
