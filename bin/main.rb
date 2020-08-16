@@ -22,6 +22,18 @@ def find_by_category(category_name)
   end
 end
 
+def list_single_category_jobs(single_category_jobs)
+  single_category_jobs.each do |job_item|
+    item_anchor = job_item.css('div.listing-title/h2/a')
+    job_title = item_anchor.text
+    job_url = item_anchor[0]['href']
+    Display.display_job_title(job_title)
+    job = Job.new(job_title, job_url)
+    job = job.create_job_detail
+    Display.display_job(job)
+  end
+end
+
 def loop_categories(categories)
   categories.each do |category|
     category_name = create_category_name(category)
