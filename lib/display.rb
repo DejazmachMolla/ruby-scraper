@@ -31,4 +31,12 @@ module Display
     no_jobs = 'NO JOBS FOUND IN THIS CATEGORY!'
     puts no_jobs.red
   end
+
+  def self.display_job_title(job_title)
+    job_title = job_title.to_s
+    left_indent_str = left_indent(job_title)
+    puts "#{left_indent_str}#{horizontal_line('=', job_title.length + 6).green}"
+    puts "#{left_indent_str}   #{job_title.upcase}"
+    puts "#{left_indent_str}#{horizontal_line('=', job_title.length + 6).green}"
+  end
 end
