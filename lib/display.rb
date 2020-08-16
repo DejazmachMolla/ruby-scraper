@@ -39,4 +39,22 @@ module Display
     puts "#{left_indent_str}   #{job_title.upcase}"
     puts "#{left_indent_str}#{horizontal_line('=', job_title.length + 6).green}"
   end
+
+  def self.display_job(job)
+    if job.logo_url.nil? || job.id_by_ethiojobs.nil? || job.deadline.nil? || job.posted_on.nil?
+      puts 'No job detail found'.upcase.red
+      return
+    end
+    puts "JOB TITLE : #{job.job_title.green}"
+    puts "JOB URL : #{job.job_url.yellow}"
+    puts "ETHIOJOBS ID : #{job.id_by_ethiojobs.blue}"
+    puts "LOGO URL : #{job.logo_url.yellow}"
+    puts "DEADLINE : #{job.deadline.red}"
+    puts "POSTED ON : #{job.posted_on.green}"
+    puts "JOB DESCRIPTION : #{job_description}"
+    puts 'ABOUT THE JOB :'
+    job.abouts.each do |about|
+      puts "       #{about.about_key} #{about.about_value}"
+    end
+  end
 end

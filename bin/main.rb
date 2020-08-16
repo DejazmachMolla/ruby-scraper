@@ -42,6 +42,13 @@ def loop_categories(categories)
   end
 end
 
+def find_single_category_jobs(category_name)
+  search_url = url_generator('category_list', category_name)
+  page = scrape(search_url).scrapped_page
+  items = page.css('div.listing-section')
+  items
+end
+
 def create_category_name(category)
   text_content = category['title']
   suffix_index = text_content.index(' Jobs in Ethiopia')
@@ -57,3 +64,4 @@ end
 scrapper = scrape(url_generator('home', nil))
 categories = scrapper.create_scraped_categories
 Display.display_no_of_categories(categories.length)
+loop_categories(categories)
