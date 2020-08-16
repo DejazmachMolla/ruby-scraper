@@ -18,4 +18,5 @@ def scrape(target_url)
 end
 
 scrapper = scrape(url_generator('home', nil))
-puts scrapper.scrapped_page
+categories = scrapper.create_scraped_categories
+puts categories
