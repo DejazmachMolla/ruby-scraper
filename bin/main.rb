@@ -2,6 +2,7 @@
 require_relative '../lib/scrapper.rb'
 require_relative '../lib/job.rb'
 require_relative '../lib/about_job.rb'
+require_relative '../lib/display.rb'
 
 def url_generator(page, category_name)
   if page == 'home'
@@ -19,4 +20,4 @@ end
 
 scrapper = scrape(url_generator('home', nil))
 categories = scrapper.create_scraped_categories
-puts categories
+Display.display_no_of_categories(categories.length)
