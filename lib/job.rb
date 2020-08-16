@@ -28,7 +28,7 @@ class Job
       job
     end
   end
-  
+
   def find_posted_on(job_listing)
     posted_on_unformatted = job_listing.at('//div[5]').css('div/script').first.text.to_s
     posted_on_start = posted_on_unformatted.index('"') + 1
@@ -47,4 +47,15 @@ class Job
     string_format
   end
 
+  def self.create_logo_url(job_listing)
+    logo = job_listing.at('//div[8]').css('a/div').to_s
+    logo_start_index = logo.index('://').to_i + 3
+    if logo_start_index > 24
+      logo_end_index = logo.index(')')
+      logo_url = logo[logo_start_index, logo_end_index - (logo_start_index + 1)]
+    else
+      logo_url = 'NO LOGO'
+    end
+    logo_url
+  end
 end
