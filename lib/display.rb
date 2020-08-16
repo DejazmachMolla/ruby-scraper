@@ -11,7 +11,7 @@ module Display
     left_indent_str = ' ' * left_indent if left_indent.positive?
     left_indent_str
   end
-  
+
   def self.display_no_of_categories(num)
     info = "#{num} CATEGORIES FOUND"
     puts info.green
@@ -24,5 +24,11 @@ module Display
     puts "#{left_indent_str}#{category_name.upcase} JOBS"
     puts horizontal_line('*', 130).cyan
     puts
+  end
+
+  def self.display_no_job_found
+    puts
+    no_jobs = 'NO JOBS FOUND IN THIS CATEGORY!'
+    puts no_jobs.red
   end
 end
