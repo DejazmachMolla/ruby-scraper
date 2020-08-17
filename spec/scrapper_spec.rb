@@ -9,4 +9,10 @@ describe Scrapper do
       expect(scrapper.target_url).to eql('http://www.ethiojobs.net')
     end
   end
+
+  describe '#scrape' do
+    it 'scrapes a webpage specified by the target_url' do
+      expect(scrapper).to_not be_nil
+    end
+  end
 end
