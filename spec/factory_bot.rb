@@ -23,5 +23,10 @@ class FactoryBot
     item_anchor = FactoryBot.create_job_item_anchor
     item_anchor[0]['href']
   end
+
+  def self.create_scrapper
+    target_url = 'http://www.ethiojobs.net'
+    Scrapper.new(target_url)
+  end
   
 end
