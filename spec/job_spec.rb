@@ -45,4 +45,12 @@ describe Job do
     end
   end
 
+  describe '#format_date' do
+    it 'formats machine readable date to human readable one' do
+      machine_readable = '2020-08-07 06:13:08'
+      formatted = Job.format_date(machine_readable)
+      expect(formatted).to eql('Aug 07, 2020')
+    end
+  end
+
 end
