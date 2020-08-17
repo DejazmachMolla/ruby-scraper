@@ -53,4 +53,22 @@ describe Job do
     end
   end
 
+  describe '#create_logo_url' do
+    it 'creates logo url correctly' do
+      job_listing = detail_page.css('div#listingsResults')
+      logo_url = Job.create_logo_url(job_listing)
+      expect(logo_url).to eql('www.ethiojobs.net/files/pictures/logotarara].png')
+    end
+  end
+
+  describe '#create_abouts' do
+    it 'creats the abouts attribute of a job object correctly' do
+      abouts = job.create_abouts(detail_page)
+      expect(abouts.length).to eql(3)
+      about_job = abouts[0]
+      expect(about_job.about_key).to eql('Category:')
+      expect(about_job.about_value).to eql('Accounting and Finance')
+    end
+  end
+
 end
