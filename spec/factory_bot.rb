@@ -4,7 +4,7 @@ require 'nokogiri'
 class FactoryBot
   def self.create_job_item_anchor
     job_item = Nokogiri::HTML(open('./lib/test_files/job_item.html'))
-    item_anchor = job_item.css('div.listing-title/h2/a')
+    job_item.css('div.listing-title/h2/a')
   end
 
   def self.create_job
@@ -28,5 +28,4 @@ class FactoryBot
     target_url = 'http://www.ethiojobs.net'
     Scrapper.new(target_url)
   end
-  
 end
