@@ -53,6 +53,7 @@ class Job
     if logo_start_index > 24
       logo_end_index = logo.index(')')
       logo_url = logo[logo_start_index, logo_end_index - (logo_start_index + 1)]
+      logo_url.sub! 'ifhp', 'www'
     else
       logo_url = 'NO LOGO'
     end

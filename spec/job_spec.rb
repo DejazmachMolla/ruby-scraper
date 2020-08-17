@@ -37,4 +37,12 @@ describe Job do
     end
   end
 
+  describe '#find_posted_on' do
+    it 'gets job posting date correctly' do
+      job_listing = detail_page.css('div#listingsResults')
+      posted_on = Job.find_posted_on(job_listing)
+      expect(posted_on).to eql('Aug 07, 2020')
+    end
+  end
+
 end
