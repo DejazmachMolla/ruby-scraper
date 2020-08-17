@@ -62,6 +62,6 @@ def scrape(target_url)
 end
 
 scrapper = scrape(url_generator('home', nil))
-categories = scrapper.create_scraped_categories
+categories = scrapper.create_scrapped_categories
 Display.display_no_of_categories(categories.length)
 loop_categories(categories)

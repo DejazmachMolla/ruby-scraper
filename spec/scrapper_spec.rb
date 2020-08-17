@@ -15,4 +15,11 @@ describe Scrapper do
       expect(scrapper).to_not be_nil
     end
   end
+
+  describe '#create_scrapped_categories' do
+    it 'creates scrapped categories correctly' do
+      categories = scrapper.create_scrapped_categories
+      expect(categories.length).to be >= 41
+    end
+  end
 end

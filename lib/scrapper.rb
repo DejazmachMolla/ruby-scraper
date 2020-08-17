@@ -14,9 +14,9 @@ class Scrapper
     Nokogiri::HTML(URI.open(@target_url))
   end
 
-  def create_scraped_categories
-    job = self
-    doc = job.scrapped_page
+  def create_scrapped_categories
+    scrapper = self
+    doc = scrapper.scrapped_page
     categories = doc.css('div.browse_by.panel.panel-default/ul/a')
     categories
   end
