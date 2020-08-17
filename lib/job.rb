@@ -14,6 +14,7 @@ class Job
       scrapper = Scrapper.new(job.job_url)
       detail_page = scrapper.scrapped_page
       job_listing = detail_page.css('div#listingsResults')
+      puts job_listing
       unless job_listing.nil?
         job.id_by_ethiojobs = job_listing.at('//div[4]').css('div.page-header/span.jobs_by/span.num').text
         job.job_description = job_listing.css('div.listingInfo.col-md-12.marg-top-1')
