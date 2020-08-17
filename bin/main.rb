@@ -24,7 +24,6 @@ end
 
 def list_single_category_jobs(single_category_jobs)
   single_category_jobs.each do |job_item|
-    puts job_item
     item_anchor = job_item.css('div.listing-title/h2/a')
     job_title = item_anchor.text
     job_url = item_anchor[0]['href']
