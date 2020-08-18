@@ -19,7 +19,7 @@ describe Scrapper do
   describe '#create_scrapped_categories' do
     it 'creates scrapped categories correctly' do
       categories = scrapper.create_scrapped_categories
-      expect(categories.length).to be >= 41
+      expect(categories.length).to be >= 2
     end
   end
 end
