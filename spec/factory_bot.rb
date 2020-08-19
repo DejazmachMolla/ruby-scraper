@@ -10,7 +10,7 @@ class FactoryBot
   def self.create_job
     item_anchor = FactoryBot.create_job_item_anchor
     job_title = item_anchor.text
-    job_url = item_anchor[0]['href']
+    job_url = './spec/test_files/detail_page.html'
     Job.new(job_title, job_url)
   end
 
@@ -20,8 +20,7 @@ class FactoryBot
   end
 
   def self.create_job_url
-    item_anchor = FactoryBot.create_job_item_anchor
-    item_anchor[0]['href']
+    './spec/test_files/detail_page.html'
   end
 
   def self.create_scraper
