@@ -4,6 +4,7 @@ require_relative '../lib/job.rb'
 require_relative '../lib/about_job.rb'
 require_relative '../lib/display.rb'
 
+private
 def url_generator(page, category_name)
   if page == 'home'
     'http://www.ethiojobs.net'
@@ -13,6 +14,7 @@ def url_generator(page, category_name)
   end
 end
 
+private
 def find_by_category(category_name)
   single_category_jobs = find_single_category_jobs(category_name)
   if single_category_jobs.length.zero?
@@ -22,6 +24,7 @@ def find_by_category(category_name)
   end
 end
 
+private
 def list_single_category_jobs(single_category_jobs)
   single_category_jobs.each do |job_item|
     item_anchor = job_item.css('div.listing-title/h2/a')
@@ -34,6 +37,7 @@ def list_single_category_jobs(single_category_jobs)
   end
 end
 
+private
 def loop_categories(categories)
   categories.each do |category|
     category_name = create_category_name(category)
@@ -42,6 +46,7 @@ def loop_categories(categories)
   end
 end
 
+private
 def find_single_category_jobs(category_name)
   search_url = url_generator('category_list', category_name)
   page = scrape(search_url).scrapped_page
@@ -49,6 +54,7 @@ def find_single_category_jobs(category_name)
   items
 end
 
+private
 def create_category_name(category)
   text_content = category['title']
   suffix_index = text_content.index(' Jobs in Ethiopia')
@@ -56,6 +62,7 @@ def create_category_name(category)
   category_name
 end
 
+private
 def scrape(target_url)
   scrapper = Scrapper.new(target_url)
   scrapper
