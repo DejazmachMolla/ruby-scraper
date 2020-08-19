@@ -51,10 +51,10 @@ module Display
     puts "LOGO URL : #{job.logo_url.yellow}"
     puts "DEADLINE : #{job.deadline.red}"
     puts "POSTED ON : #{job.posted_on.green}"
-    # puts "JOB DESCRIPTION : #{job.job_description}"
-    # puts 'ABOUT THE JOB :'
-    # job.abouts.each do |about|
-    #   puts "       #{about.about_key} #{about.about_value}"
-    # end
+    puts "JOB DESCRIPTION : #{job.job_description}"
+    puts 'ABOUT THE JOB :'
+    job.abouts.each do |about|
+      puts "       #{about.about_key} #{about.about_value}"
+    end
   end
 end
