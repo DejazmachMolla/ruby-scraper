@@ -17,10 +17,10 @@ class Job
       unless job_listing.nil?
         job.id_by_ethiojobs = job_listing.css('div.page-header/span.jobs_by/span.num').text
         job.job_description = job_listing.css('div.listingInfo.col-md-12.marg-top-1')
-        job.logo_url = Job.create_logo_url(job_listing)
+        job.logo_url = create_logo_url(job_listing)
         deadline_unformmated = job_listing.css('div.JobTaskMenu/div/span.post_deadline').first.text.to_s
         job.deadline = deadline_unformmated[8, deadline_unformmated.length]
-        job.posted_on = Job.find_posted_on(job_listing)
+        job.posted_on = find_posted_on(job_listing)
         job.abouts = create_abouts(detail_page)
       end
       job
@@ -29,16 +29,28 @@ class Job
     end
   end
 
-  def self.find_posted_on(job_listing)
+  private_instance_methods def create_abouts(detail_page)
+    about_jobs = []
+    abouts = detail_page.css('div.displayFieldBlock')
+    abouts.each do |about|
+      key = about.css('div.displaFieldHeader').text
+      value = about.css('div.displayField').text.strip
+      about_job = AboutJob.new(key, value)
+      about_jobs << about_job
+    end
+    about_jobs
+  end
+
+  private_instance_methods def find_posted_on(job_listing)
     posted_on_unformatted = job_listing.at('//div[5]').css('div/script').first.text.to_s
     posted_on_start = posted_on_unformatted.index('"') + 1
     posted_on_end = posted_on_unformatted.index('".split')
     posted_on = posted_on_unformatted[posted_on_start, posted_on_end - posted_on_start].strip
-    posted_on = Job.format_date(posted_on)
+    posted_on = format_date(posted_on)
     posted_on
   end
 
-  def self.format_date(date_format)
+  private_instance_methods def format_date(date_format)
     year = date_format[0, 4]
     month = date_format[5, 2]
     date = date_format[8, 2]
@@ -47,7 +59,7 @@ class Job
     string_format
   end
 
-  def self.create_logo_url(job_listing)
+  private_instance_methods def create_logo_url(job_listing)
     logo = job_listing.at('//div[8]').css('a/div').to_s
     logo_start_index = logo.index('://').to_i + 3
     if logo_start_index > 24
@@ -58,17 +70,5 @@ class Job
       logo_url = 'NO LOGO'
     end
     logo_url
-  end
-
-  def create_abouts(detail_page)
-    about_jobs = []
-    abouts = detail_page.css('div.displayFieldBlock')
-    abouts.each do |about|
-      key = about.css('div.displaFieldHeader').text
-      value = about.css('div.displayField').text.strip
-      about_job = AboutJob.new(key, value)
-      about_jobs << about_job
-    end
-    about_jobs
   end
 end

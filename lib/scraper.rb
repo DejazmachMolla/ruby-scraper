@@ -3,7 +3,7 @@ require 'open-uri'
 require 'uri-handler'
 
 class Scraper
-  attr_accessor :target_url, :scrapped_page
+  attr_reader :target_url, :scrapped_page
 
   def initialize(target_url)
     @target_url = target_url
