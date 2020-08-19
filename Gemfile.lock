@@ -18,6 +18,3 @@ PLATFORMS
 DEPENDENCIES
   colorize
   nokogiri
-
-BUNDLED WITH
-   2.1.4
