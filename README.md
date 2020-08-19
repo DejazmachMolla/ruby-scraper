@@ -23,7 +23,9 @@
 ## Getting Started
 - Clone the project in to your computer using `git clone https://github.com/DejazmachMolla/ruby-scrapper.git` 
 - `cd` into the `ruby-scrapper` folder
-- run `bundle install`
+- run `bundle install` or the following separately
+  - `gem install colorize`
+  - `gem install nokogiri` 
 - run main.rb file by entering `bin/main.rb` or type `rspec` to `run tests`
 - The following picture will show the result of the scrapping
 
