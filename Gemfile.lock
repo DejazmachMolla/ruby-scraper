@@ -12,9 +12,6 @@ GEM
     nokogiri (1.10.10-x64-mingw32)
       mini_portile2 (~> 2.4.0)
 
-PLATFORMS
-  x64-mingw32
-
 DEPENDENCIES
   colorize
   nokogiri
