@@ -1,5 +1,5 @@
 require_relative '../lib/job.rb'
-require_relative '../lib/scrapper.rb'
+require_relative '../lib/scraper.rb'
 require 'nokogiri'
 require './spec/factory_bot.rb'
 

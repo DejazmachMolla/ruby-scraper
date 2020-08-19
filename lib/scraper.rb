@@ -2,7 +2,7 @@ require 'nokogiri'
 require 'open-uri'
 require 'uri-handler'
 
-class Scrapper
+class Scraper
   attr_accessor :target_url, :scrapped_page
 
   def initialize(target_url)
@@ -15,8 +15,8 @@ class Scrapper
   end
 
   def create_scrapped_categories
-    scrapper = self
-    doc = scrapper.scrapped_page
+    scraper = self
+    doc = scraper.scrapped_page
     categories = doc.css('div.browse_by.panel.panel-default/ul/a')
     categories
   end

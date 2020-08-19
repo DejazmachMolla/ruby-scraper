@@ -11,8 +11,8 @@ class Job
   def create_job_detail
     job = self
     begin
-      scrapper = Scrapper.new(job.job_url)
-      detail_page = scrapper.scrapped_page
+      scraper = Scraper.new(job.job_url)
+      detail_page = scraper.scrapped_page
       job_listing = detail_page.css('div#listingsResults')
       unless job_listing.nil?
         job.id_by_ethiojobs = job_listing.css('div.page-header/span.jobs_by/span.num').text

@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-require_relative '../lib/scrapper.rb'
+require_relative '../lib/scraper.rb'
 require_relative '../lib/job.rb'
 require_relative '../lib/about_job.rb'
 require_relative '../lib/display.rb'
@@ -64,11 +64,11 @@ end
 
 private
 def scrape(target_url)
-  scrapper = Scrapper.new(target_url)
-  scrapper
+  scraper = Scraper.new(target_url)
+  scraper
 end
 
-scrapper = scrape(url_generator('home', nil))
-categories = scrapper.create_scrapped_categories
+scraper = scrape(url_generator('home', nil))
+categories = scraper.create_scrapped_categories
 Display.display_no_of_categories(categories.length)
 loop_categories(categories)

@@ -1,5 +1,5 @@
 # Ruby Scraper
-> This project is a web scrapper project built using the Ruby programming language. The website scrapped in this project is the largest job posting platform in Ethiopia i.e. [Ethiojobs](https://www.ethiojobs.net)
+> This project is a web scraper project built using the Ruby programming language. The website scrapped in this project is the largest job posting platform in Ethiopia i.e. [Ethiojobs](https://www.ethiojobs.net)
 
 ## Demo
 
@@ -27,7 +27,7 @@
 - run main.rb file by entering `bin/main.rb` or type `rspec` to `run tests`
 - The following picture will show the result of the scrapping
 
-![screenshot](./lib/ruby_scrapper.PNG)
+![screenshot](./lib/ruby_scraper.PNG)
 
 ## Authors
 
