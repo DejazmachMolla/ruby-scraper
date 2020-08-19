@@ -2,7 +2,7 @@
 require_relative '../lib/scraper.rb'
 require_relative '../lib/job.rb'
 require_relative '../lib/about_job.rb'
-require_relative '../lib/display.rb'
+require_relative './display.rb'
 
 private
 def url_generator(page, category_name)

@@ -1,7 +1,7 @@
 require_relative '../lib/job.rb'
 require_relative '../lib/scraper.rb'
 require 'nokogiri'
-require './spec/factory_bot.rb'
+require_relative './factory_bot.rb'
 
 describe Job do
   let(:job_item) { Nokogiri::HTML(open('./spec/test_files/job_item.html')) }

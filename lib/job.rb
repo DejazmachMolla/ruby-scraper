@@ -1,5 +1,5 @@
 require 'nokogiri'
-require './lib/about_job.rb'
+require_relative './about_job.rb'
 class Job
   attr_accessor :job_title, :job_url, :id_by_ethiojobs, :job_description, :logo_url, :deadline, :posted_on, :abouts
 
