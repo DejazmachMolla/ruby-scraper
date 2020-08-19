@@ -2,7 +2,7 @@ require_relative '../lib/scraper.rb'
 
 describe Scraper do
   let(:scraper) { FactoryBot.create_scraper }
-  let(:home) { Nokogiri::HTML(open('./lib/test_files/home.html')) }
+  let(:home) { Nokogiri::HTML(open('./spec/test_files/home.html')) }
 
   describe '#initialize' do
     it 'initializes the scraper object correctly' do

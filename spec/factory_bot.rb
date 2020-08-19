@@ -3,7 +3,7 @@ require 'nokogiri'
 
 class FactoryBot
   def self.create_job_item_anchor
-    job_item = Nokogiri::HTML(open('./lib/test_files/job_item.html'))
+    job_item = Nokogiri::HTML(open('./spec/test_files/job_item.html'))
     job_item.css('div.listing-title/h2/a')
   end
 

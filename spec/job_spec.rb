@@ -4,8 +4,8 @@ require 'nokogiri'
 require './spec/factory_bot.rb'
 
 describe Job do
-  let(:job_item) { Nokogiri::HTML(open('./lib/test_files/job_item.html')) }
-  let(:detail_page) { Nokogiri::HTML(open('./lib/test_files/detail_page.html')) }
+  let(:job_item) { Nokogiri::HTML(open('./spec/test_files/job_item.html')) }
+  let(:detail_page) { Nokogiri::HTML(open('./spec/test_files/detail_page.html')) }
   let(:job) { FactoryBot.create_job }
   let(:job_title) { FactoryBot.create_job_title }
   let(:job_url) { FactoryBot.create_job_url }
