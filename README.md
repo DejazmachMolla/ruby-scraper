@@ -1,9 +1,9 @@
-# Ruby Scrapper
+# Ruby Scraper
 > This project is a web scrapper project built using the Ruby programming language. The website scrapped in this project is the largest job posting platform in Ethiopia i.e. [Ethiojobs](https://www.ethiojobs.net)
 
 ## Demo
 
-[Demo Video](https://www.youtube.com/watch?v=jAWtJjJuT40)
+[Demo Video](https://youtu.be/srQt5iKcu-Y)
 
 ## Built With
 - Ruby
@@ -23,7 +23,8 @@
 ## Getting Started
 - Clone the project in to your computer using `git clone https://github.com/DejazmachMolla/ruby-scrapper.git` 
 - `cd` into the `ruby-scrapper` folder
-- `run` main.rb file by typing `bin/main.rb` or type `rspec` to `run tests`
+- run `bundle install`
+- run main.rb file by entering `bin/main.rb` or type `rspec` to `run tests`
 - The following picture will show the result of the scrapping
 
 ![screenshot](./lib/ruby_scrapper.PNG)
